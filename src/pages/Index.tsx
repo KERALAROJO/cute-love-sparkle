@@ -5,7 +5,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
    ============================================ */
 
 // ✏️ Girl's name
-const GIRL_NAME = "My Love";
+const GIRL_NAME = "Potuss";
 
 // ✏️ Love confession lines (typewriter effect)
 const LOVE_CONFESSION_LINES = [
