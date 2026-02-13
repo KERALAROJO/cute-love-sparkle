@@ -240,7 +240,6 @@ const Index = () => {
   // ---- Envelope opened → start typewriter + music ----
   const handleEnvelopeOpen = () => {
     setPhase("typewriter");
-    playMusic();
   };
 
   // ---- Typewriter done → show proposal ----
