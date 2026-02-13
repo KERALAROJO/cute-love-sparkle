@@ -251,8 +251,6 @@ const Index = () => {
   // ---- YES clicked ----
   const handleYes = () => {
     setPhase("accepted");
-    // Restart music or keep playing
-    playMusic();
   };
 
   // ---- NO button runs away ----
