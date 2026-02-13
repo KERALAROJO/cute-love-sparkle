@@ -24,7 +24,7 @@ const POPUP_PROMISE = "I promise to cherish you forever.";
 const SONG_URL = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
 
 // ✏️ Your name (footer credit)
-const YOUR_NAME = "Your Name";
+const YOUR_NAME = "RJ";
 
 /* ============================================ */
 
