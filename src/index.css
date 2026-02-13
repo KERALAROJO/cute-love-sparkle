@@ -6,45 +6,33 @@
   :root {
     --background: 340 80% 95%;
     --foreground: 340 60% 20%;
-
     --card: 340 70% 97%;
     --card-foreground: 340 60% 20%;
-
     --popover: 0 0% 100%;
     --popover-foreground: 340 60% 20%;
-
     --primary: 340 82% 52%;
     --primary-foreground: 0 0% 100%;
-
     --secondary: 340 60% 90%;
     --secondary-foreground: 340 60% 30%;
-
     --muted: 340 40% 92%;
-    --muted-foreground: 340 20% 50%;
-
+    --muted-foreground: 215.4 16.3% 46.9%;
     --accent: 350 90% 60%;
     --accent-foreground: 0 0% 100%;
-
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 340 40% 88%;
     --input: 340 40% 88%;
     --ring: 340 82% 52%;
-
     --radius: 1rem;
-
     --valentine-pink: 340 82% 52%;
     --valentine-light: 340 80% 95%;
     --valentine-red: 0 80% 55%;
     --valentine-rose: 330 70% 70%;
     --valentine-blush: 340 60% 90%;
     --valentine-gold: 40 90% 60%;
-
     --font-display: 'Dancing Script', cursive;
     --font-body: 'Quicksand', sans-serif;
   }
-
   .dark {
     --background: 340 30% 10%;
     --foreground: 340 20% 90%;
@@ -54,92 +42,130 @@
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
+  * { @apply border-border; }
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-body);
   }
 }
 
-/* Floating hearts animation */
+/* ===== FLOATING HEARTS ===== */
 @keyframes float-heart {
-  0% {
-    transform: translateY(100vh) rotate(0deg) scale(0.5);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 0.8;
-  }
-  100% {
-    transform: translateY(-10vh) rotate(720deg) scale(1);
-    opacity: 0;
-  }
+  0% { transform: translateY(100vh) rotate(0deg) scale(0.5); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 0.8; }
+  100% { transform: translateY(-10vh) rotate(720deg) scale(1); opacity: 0; }
 }
-
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 20px hsl(340 82% 52% / 0.4), 0 0 40px hsl(340 82% 52% / 0.2);
-  }
-  50% {
-    box-shadow: 0 0 30px hsl(340 82% 52% / 0.6), 0 0 60px hsl(340 82% 52% / 0.3);
-  }
-}
-
-@keyframes sparkle {
-  0%, 100% { opacity: 0; transform: scale(0); }
-  50% { opacity: 1; transform: scale(1); }
-}
-
-@keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-@keyframes bounce-in {
-  0% { transform: scale(0); opacity: 0; }
-  50% { transform: scale(1.2); }
-  100% { transform: scale(1); opacity: 1; }
-}
-
-@keyframes wiggle {
-  0%, 100% { transform: rotate(-3deg); }
-  50% { transform: rotate(3deg); }
-}
-
 .floating-heart {
   animation: float-heart linear forwards;
   position: fixed;
   pointer-events: none;
   z-index: 0;
-  font-size: 1.5rem;
 }
 
-.glow-button {
-  animation: pulse-glow 2s ease-in-out infinite;
+/* ===== GLOW BUTTON ===== */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px hsl(340 82% 52% / 0.4), 0 0 40px hsl(340 82% 52% / 0.2); }
+  50% { box-shadow: 0 0 30px hsl(340 82% 52% / 0.6), 0 0 60px hsl(340 82% 52% / 0.3); }
 }
+.glow-button { animation: pulse-glow 2s ease-in-out infinite; }
 
-.magical-bg {
-  background: linear-gradient(
-    -45deg,
-    hsl(340 82% 52%),
-    hsl(330 70% 70%),
-    hsl(350 90% 60%),
-    hsl(340 80% 95%),
-    hsl(40 90% 60%)
-  );
-  background-size: 400% 400%;
-  animation: gradient-shift 4s ease infinite;
+/* ===== SPARKLES ===== */
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1) rotate(180deg); }
 }
-
 .sparkle-particle {
   animation: sparkle 1.5s ease-in-out infinite;
   position: fixed;
   pointer-events: none;
   z-index: 50;
 }
+
+/* ===== GRADIENT SHIFT (celebration) ===== */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.magical-bg {
+  background: linear-gradient(-45deg,
+    hsl(340 82% 52%), hsl(330 70% 70%),
+    hsl(280 60% 65%), hsl(340 80% 95%), hsl(40 90% 60%));
+  background-size: 400% 400%;
+  animation: gradient-shift 4s ease infinite;
+}
+
+/* ===== BOUNCE IN ===== */
+@keyframes bounce-in {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.15); }
+  70% { transform: scale(0.95); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ===== WIGGLE ===== */
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+/* ===== ENVELOPE ANIMATIONS ===== */
+@keyframes envelope-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes flap-open {
+  0% { transform: rotateX(0deg); }
+  100% { transform: rotateX(180deg); }
+}
+@keyframes letter-slide {
+  0% { transform: translateY(0); opacity: 0.5; }
+  100% { transform: translateY(-120px); opacity: 1; }
+}
+@keyframes fade-up {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== TYPEWRITER CURSOR ===== */
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.typewriter-cursor::after {
+  content: '|';
+  animation: blink-cursor 0.8s step-end infinite;
+  color: hsl(var(--primary));
+  font-weight: 300;
+  margin-left: 2px;
+}
+
+/* ===== FADE IN ===== */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out forwards;
+}
+
+/* ===== PAPER TEXTURE ===== */
+.paper-texture {
+  background-color: hsl(40 40% 96%);
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 28px,
+      hsl(340 30% 88% / 0.3) 28px,
+      hsl(340 30% 88% / 0.3) 29px
+    );
+}
+
+/* ===== CELEBRATION GLOW ===== */
+@keyframes glow-ring {
+  0%, 100% { box-shadow: 0 0 30px hsl(340 82% 52% / 0.3), 0 0 60px hsl(280 60% 65% / 0.15); }
+  50% { box-shadow: 0 0 50px hsl(340 82% 52% / 0.5), 0 0 100px hsl(280 60% 65% / 0.25); }
+}
+.glow-ring { animation: glow-ring 2s ease-in-out infinite; }
