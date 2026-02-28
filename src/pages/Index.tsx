@@ -5,7 +5,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
    ============================================ */
 
 // ✏️ Girl's name
-const GIRL_NAME = "Potuss";
+const GIRL_NAME = "Pothuss";
 
 // ✏️ Love confession lines (typewriter effect)
 const LOVE_CONFESSION_LINES = [
@@ -320,7 +320,7 @@ const Index = () => {
           <p className="text-muted-foreground font-body text-base mt-4">
             I love you, {GIRL_NAME} 💖
           </p>
-          <div className="text-5xl mt-6 animate-wiggle">💑</div>
+          <div className="text-5xl mt-6 animate-wiggle">👩‍❤️‍👨</div>
         </div>
 
         <p className="absolute bottom-6 text-primary-foreground/80 font-body text-sm z-10">
